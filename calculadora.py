@@ -2,38 +2,38 @@
 def all_values_is_numbers(a, b):
     return isinstance(a, int) and isinstance(b, int)
 
-def somar(a,b):
-    if all_values_is_numbers(a, b):
-        return a+b
-    return 'ambos os valores devem ser numberos'
+def test_all_number(func):
+    def wraper(*args, **kwargs):
+        if all_values_is_numbers(args[0], args[1]):
+            return func(args[0], args[1])
+        else:
+            return 'ambos os valores devem ser numberos'
+    return wraper
 
+
+@test_all_number
+def somar(a,b):
+    return a+b
+
+@test_all_number
 def sub(a,b):
     return a-b
-    if all_values_is_numbers(a, b):
-        return a+b
-    return 'ambos os valores devem ser numberos'
 
-
+@test_all_number
 def mult(a,b):
-    if all_values_is_numbers(a, b):
-        return a*b
-    return 'ambos os valores devem ser numberos'
+    return a*b
 
-
+@test_all_number
 def div(a,b):
     two_number_equal_zero = a == 0 and b == 0
+
     if two_number_equal_zero:
         return 'nao pode dividir por 0'
+    return a/b
 
-    if all_values_is_numbers(a, b):
-        return a/b
-    return 'ambos os valores devem ser numberos'
-
-
+@test_all_number
 def pot(a,b):
-    if all_values_is_numbers(a, b):
-        return a**b
-    return 'ambos os valores devem ser numberos'
+    return a**b
 
 
 mathematical_formulas = {

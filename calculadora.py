@@ -35,7 +35,6 @@ def div(a,b):
 def pot(a,b):
     return a**b
 
-
 mathematical_formulas = {
     '1': somar, 
     '2': sub, 
@@ -55,8 +54,13 @@ def operations():
     return input('Informe o numero da operação que deseja realizar: ')
 
 def main(a, b):
-    while True:
-        sair = int(input('1 - Sair | 0 - Continuar: '))
-        if sair == 1:
-            break
-        return mathematical_formulas[operations()](a, b)
+    return mathematical_formulas[operations()](a, b)
+    
+while True:
+    sair = int(input('1 - Sair | 0 - Continuar: '))
+    if sair == 1:
+        break
+    a = int(input('Informe o primeiro numero: '))
+    b = int(input('Informe o segundo numero: '))
+    print(mathematical_formulas[operations()](a, b))
+

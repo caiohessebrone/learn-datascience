@@ -4,8 +4,9 @@ def all_values_is_numbers(a, b):
 
 def test_all_number(func):
     def wraper(*args, **kwargs):
-        if all_values_is_numbers(args[0], args[1]):
-            return func(args[0], args[1])
+        num_one, num_two = args
+        if all_values_is_numbers(num_one, num_two):
+            return func(num_one, num_two)
         else:
             return 'ambos os valores devem ser numberos'
     return wraper
